@@ -1,0 +1,27 @@
+{
+  "name": "flow-scripts",
+  "version": "0.0.0-pre",
+  "description": "Utility scripts for Flowtypes",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "bin": {
+    "flow-scripts": "index.js"
+  },
+  "scripts": {
+    "test:stub": "node index.js stub"
+  },
+  "repository": "https://github.com/yangshun/flow-scripts.git",
+  "keywords": [],
+  "author": "Tay Yang Shun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yangshun/flow-scripts/issues"
+  },
+  "homepage": "https://github.com/yangshun/flow-scripts",
+  "npmName": "flow-scripts",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
