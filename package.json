@@ -1,6 +1,6 @@
 {
   "name": "flow-scripts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utility scripts for Flowtypes",
   "main": "index.js",
   "files": [
