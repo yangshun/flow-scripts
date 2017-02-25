@@ -8,7 +8,7 @@ Utility tools for Flow.
 $ npm install flow-scripts --save-dev
 ```
 
-### Stub
+#### Stub
 
 ```
 $ flow-scripts stub
@@ -35,4 +35,14 @@ In `package.json`, add to the `postinstall` hook:
     "postinstall": "flow-scripts stub"
   },
   ...
+```
+
+### Development
+
+We use an empty project in the `test-project` folder that has some dependencies defined in its `package.json` and symlink the `flow-scripts` library within that project to our development file in the root folder to test that the library is actually working as intended.
+
+```
+$ cd test-project
+$ npm install // or yarn install
+$ npm link ../
 ```
