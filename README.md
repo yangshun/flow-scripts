@@ -26,11 +26,13 @@ It also possible to combine usage of `flow-typed install` with `flow-scripts stu
 
 #### Motivation
 
-By default, running Flow on start up will read all the files under `node_modules`. This takes very very long and it is a huge pain to waiting that long every time your web app starts. Ignoring the `node_modules` directory isn't a good idea because Flow looks in there to a) ensure you've actually installed your dependencies and b) find Flow libdefs for packages which might have included them, and Flow will throw a `Required module not found` error. Refer to this [issue](https://github.com/facebook/flow/issues/869) for an in-depth discussion on the topic.
+By default, running Flow on start up will read all the files under `node_modules`. This takes very very long and it is a huge pain to waiting that long every time your web app starts. According to FB, ignoring the `node_modules` directory isn't a good idea because Flow looks in there to a) ensure you've actually installed your dependencies and b) find Flow libdefs for packages which might have included them, and Flow will throw a `Required module not found` error. Refer to this [issue](https://github.com/facebook/flow/issues/869) for an in-depth discussion on the topic.
+
+However, with the inclusion of libdefs (or stubs) for external libraries, ignoring `node_modules` might not seem like that bad an idea after all.
 
 #### Workaround
 
-The workaround is to flowignore the `node_modules` directory and manually include the libdefs inside the `flow-typed/` directory or provide a stub for it. 
+The workaround is to flowignore the `node_modules` directory and include the libdefs inside the `flow-typed/` directory or provide a stub for it. This can be done manually or automatically via the `flow-typed install` command.
 
 The `flow-typed install` command does fetch community libdefs and generates stubs pretty well, but has a few problems:
 
@@ -44,7 +46,6 @@ In `.flowconfig`, add:
 ```
 [ignore]
 .*node_modules/.*
-
 ```
 
 In the project directory, run:
