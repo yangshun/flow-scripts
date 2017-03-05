@@ -8,10 +8,29 @@ Utility tools for Flow. Currently only contains `flow-scripts stub`.
 $ npm install flow-scripts --save-dev
 ```
 
+Add to your `package.json`:
+
+```
+"scripts": {
+  "flow-scripts": "flow-scripts"
+}
+```
+
+```
+$ npm run flow-scripts <command>
+```
+
+You can run `flow-scripts` directly from the CLI (if it's globally available in your PATH, e.g. by `npm install -g jest`)
+
+```
+$ npm install -g flow-scripts
+$ flow-scripts stub
+```
+
 ### Stub
 
 ```
-$ flow-scripts stub
+$ npm run flow-scripts stub
 ```
 
 #### What is it?
@@ -51,7 +70,7 @@ In `.flowconfig`, add:
 In the project directory, run:
 
 ```
-$ flow-scripts stub
+$ npm run flow-scripts stub
 ```
 
 This will do the following:
