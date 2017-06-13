@@ -71,7 +71,7 @@ In `package.json`, add this `postinstall` hook:
 
 ```
 "scripts": {
-  "postinstall": "flow-scripts stub",
+  "postinstall": "flow-scripts stub"
 },
 ```
 
@@ -99,7 +99,7 @@ $ flow-scripts unmonitored "src/**/*.js"
 
 #### Options
 
-- `--fix`: Automatically fix those files by adding "@flow".
+- `--fix`: Automatically fix those files by adding `// @flow` at the top.
 
 ## Development
 
