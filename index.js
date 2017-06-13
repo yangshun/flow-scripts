@@ -45,9 +45,13 @@ switch (command) {
       let packagesWithLibdef = [];
       if (fs.existsSync(libdefDir)) {
         const libdefFiles = fs.readdirSync(libdefDir);
-        packagesWithLibdef = libdefFiles.map((file) => {
-          return LIBDEF_REGEX.exec(file)[1];
-        });
+        packagesWithLibdef = libdefFiles
+          .map((file) => {
+            const [, match] = LIBDEF_REGEX.exec(file) || [];
+
+            return match;
+          })
+          .filter(Boolean);
       } else {
         log('No existing community libdefs found. It is recommended to run `flow-typed install` first to pull in community libdefs.\n');
       }
