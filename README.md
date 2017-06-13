@@ -1,12 +1,14 @@
 # Flow Scripts
 
-Utility tools for Flow.
+Utility tools for Flow. Provides a few helpful functions like generating stubs and finding files that are not covered by Flow. Refer to the [commands section](#available-commands) for more.
+
+If you have suggestions for further commands, feel free to [create an issue](https://github.com/yangshun/flow-scripts/issues/new).
 
 ## Installation
 
 ```
 $ npm install -g flow-scripts
-$ flow-scripts <command>
+$ flow-scripts <command> [options]
 ```
 
 ## Available Commands
