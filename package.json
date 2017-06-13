@@ -4,16 +4,21 @@
   "description": "Utility scripts for Flowtypes",
   "main": "index.js",
   "files": [
-    "index.js"
+    "bin",
+    "lib",
+    "README.md"
   ],
   "bin": {
-    "flow-scripts": "index.js"
+    "flow-scripts": "bin/flow-scripts.js"
   },
   "scripts": {
-    "test:stub": "node index.js stub"
+    "test": "Tests not ready."
   },
   "repository": "https://github.com/yangshun/flow-scripts.git",
-  "keywords": [],
+  "keywords": [
+    "flow",
+    "flowtypes"
+  ],
   "author": "Tay Yang Shun",
   "license": "MIT",
   "bugs": {
