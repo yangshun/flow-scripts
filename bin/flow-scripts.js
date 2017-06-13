@@ -21,8 +21,9 @@ commander
 commander
   .command('unmonitored [pattern]')
   .description(`Lists the files matching the specified glob pattern that do not contain "${constants.FLOW_MARKER}"`)
-  .action((pattern) => {
-    cli.execute('unmonitored', { pattern });
+  .option('--fix', `Adds "${constants.FLOW_MARKER}" to the unmonitored files`)
+  .action((pattern, options) => {
+    cli.execute('unmonitored', { pattern }, { fix: options.fix });
   });
 
 commander.parse(process.argv);
