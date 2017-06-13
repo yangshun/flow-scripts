@@ -1,39 +1,28 @@
 # Flow Scripts
 
-Utility tools for Flow. Currently only contains `flow-scripts stub`.
+Utility tools for Flow. Provides a few helpful functions like generating stubs and finding files that are not covered by Flow. Refer to the [commands section](#available-commands) for more.
+
+If you have suggestions for further commands, feel free to [create an issue](https://github.com/yangshun/flow-scripts/issues/new).
 
 ## Installation
 
 ```
-$ npm install flow-scripts --save-dev
-```
-
-Add to your `package.json`:
-
-```
-"scripts": {
-  "flow-scripts": "flow-scripts"
-}
-```
-
-```
-$ npm run flow-scripts <command>
-```
-
-You can run `flow-scripts` directly from the CLI (if it's globally available in your PATH, e.g. by `npm install -g flow-scripts`)
-
-```
 $ npm install -g flow-scripts
-$ flow-scripts stub
+$ flow-scripts <command> [options]
 ```
+
+## Available Commands
+
+- [`stub`](#stub)
+- [`unmonitored`](#unmonitored)
 
 ### Stub
 
 ```
-$ npm run flow-scripts stub
+$ flow-scripts stub
 ```
 
-#### What is it?
+#### What it does
 
 Generates naive stubs for the packages that your project requires. To be used with `flowignore`-ing of `node_modules` for faster start up times.
 
@@ -70,7 +59,7 @@ In `.flowconfig`, add:
 In the project directory, run:
 
 ```
-$ npm run flow-scripts stub
+$ flow-scripts stub
 ```
 
 This will do the following:
@@ -78,9 +67,9 @@ This will do the following:
 1. Tell Flow to ignore checking of `node_modules`.
 2. Generates the stubs required for the `dependencies` in `package.json` that are not present in `flow-typed/npm/` and write them into `flow-typed/package-dep-libdefs.js`.
 
-**Optional:** By adding the script to an npm script `postinstall` hook, when new packages are installed, it will be automatically added into `flow-typed/`.
+**Optional:** By adding the script to an npm script `postinstall` hook, when new packages are installed, it will be automatically added into `flow-typed/`. It would be recommended to save `flow-scripts` as a `devDependency` rather than a global dependency in this case.
 
-In `package.json`, add to the `postinstall` hook:
+In `package.json`, add this `postinstall` hook:
 
 ```
 "scripts": {
@@ -94,11 +83,29 @@ In `package.json`, add to the `postinstall` hook:
 
 #### TODO
 
-- Pull out flow libdefs for packages that already contain them such as `immutable`.
+- Pull out Flow libdefs for packages that already contain them such as `immutable`.
+
+### Unmonitored
+
+```
+$ flow-scripts unmonitored [options] [pattern]
+```
+
+#### What it does
+
+Searches for files matching the specified [glob pattern](https://www.wikiwand.com/en/Glob_(programming)) and checks if they contain `@flow`. If `pattern` is not specified, it defaults to `./**/*.{js,jsx}`. Please note that this commands works on files only, and not directories, hence you will have to specify a file extension. You will also have to quote your parameter (using double quotes if you need it to run in Windows). An example as follows:
+
+```
+$ flow-scripts unmonitored "src/**/*.js"
+```
+
+#### Options
+
+- `--fix`: Automatically fix those files by adding `// @flow` at the top.
 
 ## Development
 
-Testing this library is tricky because it relies on a real project that has multiple dependencies in `package.json`. Hence we create a mock project in the `test-project` folder that has some common JS dependencies defined and symlink the `flow-scripts` library within that project to our development file in the root folder. Run the commands within that mock project to test that the library is actually working as intended.
+Testing this library is tricky because it relies on a real project that has multiple dependencies in `package.json`. Hence we create a mock project in the `fixtures` folder that has some common JS dependencies defined and symlink the `flow-scripts` library within that project to our development file in the root folder. Run the commands within that mock project to test that the library is actually working as intended.
 
 ```
 $ cd test-project

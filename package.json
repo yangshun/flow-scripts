@@ -28,6 +28,7 @@
   "npmName": "flow-scripts",
   "dependencies": {
     "commander": "^2.9.0",
+    "glob": "^7.1.2",
     "lodash": "^4.17.4"
   }
 }

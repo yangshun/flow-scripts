@@ -7,7 +7,7 @@ const constants = require('../lib/constants');
 
 commander
   .version(pkg.version)
-  .option('-s, --silent', 'silent')
+  .usage('[command] [flags]');
 
 console.log('flow-scripts %s\n', pkg.version);
 
@@ -19,9 +19,11 @@ commander
   });
 
 commander
-  .command('*')
-  .action(cmd => {
-    console.error('Command "%s" not found.', cmd);
+  .command('unmonitored [pattern]')
+  .description(`Lists the files matching the specified glob pattern that do not contain "${constants.FLOW_MARKER}"`)
+  .option('--fix', `Adds "${constants.FLOW_MARKER}" to the unmonitored files`)
+  .action((pattern, options) => {
+    cli.execute('unmonitored', { pattern }, { fix: options.fix });
   });
 
 commander.parse(process.argv);
