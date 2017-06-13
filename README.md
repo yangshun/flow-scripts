@@ -93,7 +93,7 @@ $ flow-scripts unmonitored [options] [pattern]
 
 #### What it does
 
-Searches for files matching the specified [glob pattern](https://www.wikiwand.com/en/Glob_(programming)) and checks if they contain `@flow`. If `pattern` is not specified, it defaults to `./**/*.{js,jsx}`. Please note that this commands works on files only, and not directories, hence you will have to specify a file extension. You will also have to quote your parameter (using double quotes if you need it to run in Windows). An example as follows:
+Searches for files matching the specified [glob pattern](https://www.wikiwand.com/en/Glob_(programming)) and lists the files that do not contain `@flow`. Files that are have `@noflow` are ignored. If `pattern` is not specified, it defaults to `./**/*.{js,jsx}`. Please note that this commands works on files only, and not directories, hence you will have to specify a file extension. You will also have to quote your parameter (using double quotes if you need it to run in Windows). An example as follows:
 
 ```
 $ flow-scripts unmonitored "src/**/*.js"
