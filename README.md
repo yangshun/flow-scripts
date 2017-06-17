@@ -16,7 +16,7 @@ $ flow-scripts <command> [options]
 - [`stub`](#stub)
 - [`unmonitored`](#unmonitored)
 
-### Stub
+## `Stub`
 
 ```
 $ flow-scripts stub
@@ -85,7 +85,7 @@ In `package.json`, add this `postinstall` hook:
 
 - Pull out Flow libdefs for packages that already contain them such as `immutable`.
 
-### Unmonitored
+## `Unmonitored`
 
 ```
 $ flow-scripts unmonitored [options] [pattern]
