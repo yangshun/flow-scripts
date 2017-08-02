@@ -28,7 +28,11 @@ Generates naive stubs for the packages that your project requires. To be used wi
 
 #### When should you use this?
 
-If you are thoroughly annoyed by your web app project taking so long to start up because of Flow and want to flowignore the `node_modules` folder but not might want to check in community libdefs into your repository and you are okay with not having Flow libdefs for external libraries.
+If you are:
+
+1. You are thoroughly annoyed by your web app project taking so long to start up because of Flow and want to `flowignore` the `node_modules` folder
+1. You do not want to check in community libdefs into your repository 
+1. You are okay with not having Flow libdefs for external libraries.
 
 It also possible to combine usage of `flow-typed install` with `flow-scripts stub` as stubs for existing libdefs found in `flow-typed/npm/` will not be generated.
 
@@ -40,12 +44,12 @@ However, combined with the inclusion of libdefs (or stubs) for external librarie
 
 #### Workaround
 
-The workaround is to flowignore the `node_modules` directory and include the libdefs inside the `flow-typed/` directory or provide a stub for it. This can be done manually or automatically via the `flow-typed install` command.
+The workaround is to `flowignore` the `node_modules` directory and include the libdefs inside the `flow-typed/` directory or provide a stub for it. This can be done manually or automatically via the `flow-typed install` command.
 
 The `flow-typed install` command does fetch community libdefs and generates stubs pretty well, but has a few problems:
 
 1. Some users might not want to fetch community libdefs because it adds many files to the source.
-2. The libdefs of some libraries are not pulled into `flow-typed/npm/`, such as `immutable` because it is already present in `node_modules/immutable`. This is not picked up because we flowignore the `node_modules`.
+1. The libdefs of some libraries are not pulled into `flow-typed/npm/`, such as `immutable` because it is already present in `node_modules/immutable`. This is not picked up because we `flowignore` the `node_modules`.
 
 The `flow-scripts stub` command fixes some of these problems by generating the stubs required for the `dependencies` in `package.json`. If there are existing libdef files in the `flow-typed/npm` directory, the stubs for these libraries will not be generated.
 
@@ -93,7 +97,7 @@ $ flow-scripts unmonitored [options] [pattern]
 
 #### What it does
 
-Searches for files matching the specified [glob pattern](https://www.wikiwand.com/en/Glob_(programming)) and lists the files that do not contain `@flow`. Files that are have `@noflow` are ignored. If `pattern` is not specified, it defaults to `./**/*.{js,jsx}`. Please note that this commands works on files only, and not directories, hence you will have to specify a file extension. You will also have to quote your parameter (using double quotes if you need it to run in Windows). An example as follows:
+Searches for files matching the specified [glob pattern](https://www.wikiwand.com/en/Glob_(programming)) and lists the files that do not contain `@flow`. Files that have `@noflow` are ignored. If `pattern` is not specified, it defaults to `./**/*.{js,jsx}`. Please note that this commands works on files only, and not directories, hence you will have to explicitly specify a file extension. You will also have to quote your parameter (use double quotes if you need it to run in Windows). An example as follows:
 
 ```
 $ flow-scripts unmonitored "src/**/*.js"
