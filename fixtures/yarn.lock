@@ -88,14 +88,8 @@ flow-bin@0.38.0:
   version "0.38.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.38.0.tgz#3ae096d401c969cc8b5798253fb82381e2d0237a"
 
-flow-scripts@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/flow-scripts/-/flow-scripts-0.1.0.tgz#b59f70f91c1c0cec5e332684ae068ba4a4d88ef1"
-  dependencies:
-    commander "^2.9.0"
-
 "flow-scripts@file:..":
-  version "0.3.0"
+  version "0.4.0"
   dependencies:
     commander "^2.9.0"
     glob "^7.1.2"
