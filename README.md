@@ -34,6 +34,10 @@ If you are:
 1. You do not want to check in community libdefs into your repository 
 1. You are okay with not having Flow libdefs for external libraries.
 
+## License
+
+MIT
+
 It also possible to combine usage of `flow-typed install` with `flow-scripts stub` as stubs for existing libdefs found in `flow-typed/npm/` will not be generated.
 
 #### Motivation
